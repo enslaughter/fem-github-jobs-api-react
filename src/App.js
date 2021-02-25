@@ -42,27 +42,25 @@ function App(){
         //console.log("Listing ID is " + listingid);
         //console.log("Listing ID type is " + typeof lisitngid);
             //let currentAPICall = `https://jobs.github.com/positions/${id}.json?markdown=true`;
-            let currentAPICall = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
-            //let currentAPICall = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions/${String(listingid)}.json`;
+            //let currentAPICall = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
+            let currentAPICall = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions/${String(listingid)}.json`;
             //console.log("API calling; " + currentAPICall + " type is " + typeof currentAPICall);
-            var callHeaders = new Headers({
-                "X-Requested-With": "XMLHttpRequest",
-                "Access-Control-Allow-Headers": "x-requested-with",
-                "Content-type": "application/json"
-            })
+            // var callHeaders = new Headers({
+            //     "X-Requested-With": "XMLHttpRequest",
+            //     "Access-Control-Allow-Headers": "x-requested-with",
+            //     "Content-type": "application/json"
+            // })
 
             const[error, setError] = useState(null);
             const[isLoaded, setIsLoaded] = useState(false);
-            const[items, setItems] = useState([testListings[0]]);
+            const[items, setItems] = useState({});
         
             useEffect(() => {
-                fetch(currentAPICall, {
-                    method: "GET",
-                    headers: callHeaders
-                })
+                fetch(currentAPICall)
                 .then(res => res.json())
                 .then(
                     (result) => {
+                        console.log(result);
                     setIsLoaded(true);
                     setItems(result);
                     },
@@ -92,7 +90,7 @@ function App(){
             return(
                 <div>
                     <Heading changeTheme={changeTheme} toggleState={toggleState} pageView={pageView}/>
-                    <ViewListing changePageView={changePageView} toggleState={toggleState} listing={items[0]}/>
+                    <ViewListing changePageView={changePageView} toggleState={toggleState} listing={items}/>
                     {/* If uselocation was being used, the listing would equal {location.state.listingdata} */}
                 </div>    
             )
