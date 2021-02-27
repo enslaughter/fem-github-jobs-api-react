@@ -1,7 +1,5 @@
 import './styles/App.scss';
-import Heading from "./components/Heading";
-import Footer from "./components/Footer";
-import TestJobs from "./TestJobs";
+import FetchJobs from "./FetchJobs";
 
 import {useEffect} from 'react';
 
@@ -12,10 +10,9 @@ function HomePage(props){
     })
 
     return(
+        
         <div>
-            <Heading changeTheme={props.changeTheme} toggleState={props.toggleState} pageView={props.pageView}/>
-            <TestJobs toggleState={props.toggleState}/>
-            <Footer />
+            <FetchJobs toggleState={props.toggleState} filters={props.filters}/>
         </div>
     )
 }
