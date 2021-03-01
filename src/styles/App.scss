@@ -121,9 +121,12 @@ h4 {
   height: 14px;
   background-color: $violet;
   border-radius: 7px;
+  margin-left: 0;
   &:hover {
     background-color: $lightviolet;
   }
+
+  transition: 0.5s;
 }
 
 .theme-setting-indicator--night {
@@ -280,8 +283,6 @@ h4 {
   font-size: 14px;
 }
 
-//FULL LISTING VIEW SECTION
-
 //Filter modal section
 .filter-modal-container {
   position: fixed;
@@ -314,12 +315,74 @@ h4 {
   background-color: white;
   display: flex;
   flex-direction: column;
-  padding: 32px;
-  border-radius: 16px;
+  border-radius: 6px;
+
+  input[type="text"] {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    color: $midnight;
+    opacity: 65%;
+    margin-left: 16px;
+    background-color: transparent;
+
+    &[data-theme="dark"] {
+      color: white;
+      opacity: 100%;
+    }
+  }
+
+  input[type="checkbox"] {
+    margin-right: 16px;
+  }
+
+  &[data-theme="dark"] {
+    background-color: $midnight;
+    color: white;
+  }
 }
 
 .filter-location {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid $grey;
+}
+
+.filter-checkbox {
+  padding: 24px;
+}
+
+.filter-submit {
+  padding: 24px;
+  padding-top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-button {
+  border: none;
+  font-family: inherit;
+  font-weight: 700;
+  background-color: $violet;
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $lightviolet;
+  }
+}
+
+//Single listing
+
+.listing-description {
+  background-color: white;
+  margin: 24px;
+  padding: 24px;
+  border-radius: 16px;
 }

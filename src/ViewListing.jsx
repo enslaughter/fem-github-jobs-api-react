@@ -1,5 +1,8 @@
 import {useEffect} from 'react';
 
+//Needed for extra security in the app
+import DOMPurify from "dompurify";
+
 function ViewListing(props){
 
     useEffect(() => {
@@ -30,7 +33,6 @@ function ViewListing(props){
             <div className="listing" data-theme={props.toggleState}>
                 <div>
                     <img className="listing-logo" src={props.listing.company_logo} alt=""></img>
-                    {/* <div dangerouslySetInnerHTML={{__html: props.listing.description}}></div> */}
                     <div>
                         {convertTime(currentTime - Date.parse(props.listing.created_at))}
                         &nbsp; • &nbsp;
@@ -41,6 +43,9 @@ function ViewListing(props){
                     <div>{props.listing.company}</div>
                 </div>
                 <div className="listing-location">{props.listing.location}</div>
+            </div>
+            <div className="listing-description">
+                <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(props.listing.description)}}></div>
             </div>
         </div>
     )

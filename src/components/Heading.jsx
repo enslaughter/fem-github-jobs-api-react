@@ -74,15 +74,16 @@ function Heading(props){
             <div className="filter-modal-container" style={filtersOpen ? {display: 'block'} : {display: 'none'}} >
                 <div className="filter-modal-close" onClick={toggleFilterModal}></div>
                 <div className="filter-modal-flexbox">
-                    <div className="filter-modal">
+                    <div className="filter-modal" data-theme={props.toggleState}>
                         <div className="filter-location">
-                        <img src={iconlocation} alt=""></img><input type="text" placeholder="Filter by location..." onChange={handleLocationChange}></input>
+                        <img src={iconlocation} alt=""></img><input type="text" placeholder="Filter by location..." onChange={handleLocationChange} data-theme={props.toggleState}></input>
                         </div>
-                        <div>
+                        <div className="filter-checkbox">
                         <input type="checkbox" onChange={handleFullTimeChange}></input> <span>Full Time Only</span>
                         </div>
-                        
-                        <button className="app-button" onClick={submitSearch}>Search</button>
+                        <div className="filter-submit">
+                            <button className="app-button" onClick={submitSearch}>Search</button>
+                        </div>
                     </div>
                 </div>
             </div>
