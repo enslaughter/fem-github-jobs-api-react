@@ -29,6 +29,9 @@ body {
 
 input {
   font-family: inherit;
+  &:focus {
+    opacity: 1;
+  }
 }
 
 #root {
@@ -160,14 +163,14 @@ h4 {
   font-family: inherit;
   border: none;
   background-color: transparent;
-  opacity: 65%;
+  opacity: 0.65;
   &:focus {
     outline: none;
   }
 
   &[data-theme="dark"] {
     color: white;
-    opacity: 100%;
+    opacity: 1;
     background-color: transparent;
   }
 }
@@ -322,13 +325,13 @@ h4 {
     border: none;
     font-size: 16px;
     color: $midnight;
-    opacity: 65%;
+    opacity: 0.65;
     margin-left: 16px;
     background-color: transparent;
 
     &[data-theme="dark"] {
       color: white;
-      opacity: 100%;
+      opacity: 1;
     }
   }
 
