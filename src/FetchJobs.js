@@ -53,9 +53,13 @@ function FetchJobs(props) {
   }, [props.filters])
 
   if (error) {
-    return<div>Error: {error.message}</div>;
+    return<div><h1 style={{textAlign: "center"}}>
+    ERROR: {error.message}
+</h1></div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div><h1 style={{textAlign: "center"}}>
+    Loading Listings...
+</h1></div>;
   } else {
     return (<div className="job-listing-container" data-theme={props.toggleState}>
 {items.map(item => (

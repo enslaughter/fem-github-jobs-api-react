@@ -3,6 +3,8 @@ import iconmoon from "../assets/desktop/icon-moon.svg";
 import iconfilter from "../assets/mobile/icon-filter.svg";
 import iconfilterwhite from "../assets/mobile/icon-filter-white.svg";
 import iconsearchwhite from "../assets/desktop/icon-search-white.svg";
+import iconcheck from "../assets/desktop/icon-check.svg";
+import iconcheckpurple from "../assets/desktop/icon-check-purple.svg";
 import logo from "../assets/desktop/logo.svg";
 import iconlocation from "../assets/desktop/icon-location.svg";
 
@@ -11,6 +13,7 @@ import {useState} from 'react';
 function Heading(props){
     
     const[filtersOpen,setFiltersOpen] = useState(false);
+    const[checkboxChecked, setCheckboxChecked] = useState(false);
 
     function toggleFilterModal(){
         filtersOpen ? setFiltersOpen(false) : setFiltersOpen(true);
@@ -25,6 +28,7 @@ function Heading(props){
     }
 
     function handleFullTimeChange(event){
+        event.target.checked ? setCheckboxChecked(true) : setCheckboxChecked(false);
         setFullTime(event.target.checked);
     }
 
@@ -79,7 +83,7 @@ function Heading(props){
                         <img src={iconlocation} alt=""></img><input type="text" placeholder="Filter by location..." onChange={handleLocationChange} data-theme={props.toggleState}></input>
                         </div>
                         <div className="filter-checkbox">
-                        <input type="checkbox" onChange={handleFullTimeChange}></input> <span>Full Time Only</span>
+                        <input type="checkbox" onChange={handleFullTimeChange} data-theme={props.toggleState}></input><img className="checkbox-check" src={iconcheck} alt="" style={checkboxChecked ? {visibility: 'visible', pointerEvents: 'none'} : {visibility : 'hidden', pointerEvents: 'none'}}></img> <span className="checkbox-ft">Full Time Only</span>
                         </div>
                         <div className="filter-submit">
                             <button className="app-button" onClick={submitSearch}>Search</button>

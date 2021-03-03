@@ -28,24 +28,41 @@ function ViewListing(props){
         return "<1min ago";
     }
 
+    //Search for the "how to apply" link for direct button components
+    let parser = new DOMParser();
+    let howtoapply = parser.parseFromString(props.listing.how_to_apply, "text/html");
+    let apply_hyperlink = (howtoapply.querySelector('a') ? howtoapply.querySelector('a').href : "");
+
     return(
         <div className="view-listing-container" data-theme={props.toggleState}>
-            <div className="listing" data-theme={props.toggleState}>
-                <div>
-                    <img className="listing-logo" src={props.listing.company_logo} alt=""></img>
+
+            <div className="listing-companyinfo">
+                <img className="listing-logo" src={props.listing.company_logo} alt=""></img>
+                <h1>{props.listing.company}</h1>
+                <p>{props.listing.company_url}</p>
+                {props.listing.company_url && <a className="app-button-linked" href={props.listing.company_url} target="_blank" rel="noreferrer">Company Site</a>}
+            </div>
+
+            <div className="listing-description" data-theme={props.toggleState}>
                     <div>
                         {convertTime(currentTime - Date.parse(props.listing.created_at))}
                         &nbsp; • &nbsp;
                         {props.listing.type}
                     </div>
+                    <h3>{props.listing.title}</h3>
+                    <div className="listing-location">{props.listing.location}</div>
+                    {apply_hyperlink && <a className="app-button-linked" href={apply_hyperlink} target="_blank" rel="noreferrer">Apply Now</a>}
+                    <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(props.listing.description)}}></div>
                     
-                    <p>{props.listing.title}</p>
-                    <div>{props.listing.company}</div>
-                </div>
-                <div className="listing-location">{props.listing.location}</div>
             </div>
-            <div className="listing-description">
-                <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(props.listing.description)}}></div>
+
+            <div className="listing-howtoapply">
+                <h3>How to Apply</h3>
+                <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(props.listing.how_to_apply)}}></div>
+                <a href={apply_hyperlink} target="_blank" rel="noreferrer">{apply_hyperlink}</a>
+            </div>
+            <div className="listing-footer">
+                {apply_hyperlink && <a className="app-button-linked" href={apply_hyperlink} target="_blank" rel="noreferrer">Apply Now</a>}
             </div>
         </div>
     )

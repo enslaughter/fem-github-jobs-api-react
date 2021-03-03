@@ -32,13 +32,17 @@ function GenerateListing(props){
     if(error){
         return(
             <div>
-                ERROR: {error.message};
+                <h1 style={{textAlign: "center"}}>
+                    ERROR: {error.message}
+                </h1>
             </div>
         );
     } else if(!isLoaded){
         return(
             <div>
-                Loading jobs...
+                <h1 style={{textAlign: "center"}}>
+                    Loading Listing...
+                </h1>
             </div>
         );
     } else {
