@@ -242,7 +242,7 @@ h4 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: 1s;
+    transition: 0.5s;
   }
 
   p:hover {
@@ -421,7 +421,23 @@ h4 {
   border-radius: 6px;
   padding-bottom: 32px;
   margin: 24px;
+
+  &[data-theme="dark"] {
+    background-color: $verydarkblue;
+  }
+
+  transition: 0.5s;
 }
+
+.company-title,
+.company-url {
+  transition: 0.5s;
+  color: black;
+  &[data-theme="dark"] {
+    color: white;
+  }
+}
+
 .listing-description {
   background-color: white;
   margin: 24px;
@@ -442,6 +458,12 @@ h4 {
   h4 {
     color: black;
     line-height: 40px;
+
+    &[data-theme="dark"] {
+      color: white;
+    }
+
+    transition: 0.5s;
   }
 
   a {
@@ -467,6 +489,26 @@ h4 {
   }
 }
 
+.app-button-company {
+  background-color: hsla(235, 69%, 61%, 0.1);
+  color: $violet;
+
+  &:hover {
+    background-color: hsla(235, 69%, 61%, 0.35);
+  }
+
+  &[data-theme="dark"] {
+    color: white;
+    background-color: hsla(0, 100%, 100%, 0.1);
+
+    &:hover {
+      background-color: hsla(0, 100%, 100%, 0.25);
+    }
+  }
+
+  transition: 0.5s;
+}
+
 .listing-howtoapply {
   display: flex;
   flex-direction: column;
@@ -488,6 +530,12 @@ h4 {
   flex-direction: column;
   align-items: center;
   padding: 24px;
+
+  &[data-theme="dark"] {
+    background: $verydarkblue;
+  }
+
+  transition: 0.5s;
 
   & a {
     width: 100%;

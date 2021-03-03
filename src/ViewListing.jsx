@@ -36,11 +36,11 @@ function ViewListing(props){
     return(
         <div className="view-listing-container" data-theme={props.toggleState}>
 
-            <div className="listing-companyinfo">
+            <div className="listing-companyinfo" data-theme={props.toggleState}>
                 <img className="listing-logo" src={props.listing.company_logo} alt=""></img>
-                <h1>{props.listing.company}</h1>
-                <p>{props.listing.company_url}</p>
-                {props.listing.company_url && <a className="app-button-linked" href={props.listing.company_url} target="_blank" rel="noreferrer">Company Site</a>}
+                <h1 className="company-title" data-theme={props.toggleState}>{props.listing.company}</h1>
+                <p className="company-url" data-theme={props.toggleState}>{props.listing.company_url}</p>
+                {props.listing.company_url && <a className="app-button-linked app-button-company" href={props.listing.company_url} target="_blank" rel="noreferrer" data-theme={props.toggleState}>Company Site</a>}
             </div>
 
             <div className="listing-description" data-theme={props.toggleState}>
@@ -49,7 +49,7 @@ function ViewListing(props){
                         &nbsp; • &nbsp;
                         {props.listing.type}
                     </div>
-                    <h3>{props.listing.title}</h3>
+                    <h3 data-theme={props.toggleState}>{props.listing.title}</h3>
                     <div className="listing-location">{props.listing.location}</div>
                     {apply_hyperlink && <a className="app-button-linked" href={apply_hyperlink} target="_blank" rel="noreferrer">Apply Now</a>}
                     <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(props.listing.description)}}></div>
@@ -61,7 +61,7 @@ function ViewListing(props){
                 <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(props.listing.how_to_apply)}}></div>
                 <a href={apply_hyperlink} target="_blank" rel="noreferrer">{apply_hyperlink}</a>
             </div>
-            <div className="listing-footer">
+            <div className="listing-footer" data-theme={props.toggleState}>
                 {apply_hyperlink && <a className="app-button-linked" href={apply_hyperlink} target="_blank" rel="noreferrer">Apply Now</a>}
             </div>
         </div>
