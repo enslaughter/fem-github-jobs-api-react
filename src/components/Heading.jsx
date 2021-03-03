@@ -51,7 +51,7 @@ function Heading(props){
             location: location,
             full_time: fulltime
         })
-        console.log(JSON.stringify(props.filters));
+        //console.log(JSON.stringify(props.filters));
     }
 
     return(

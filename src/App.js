@@ -38,7 +38,7 @@ function App(){
       const[filters, setFilters] = useState(emptyFilters);
 
       useEffect(() => {
-          console.log(JSON.stringify(filters));
+          //console.log(JSON.stringify(filters));
       }, [filters])
 
     return(

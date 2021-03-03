@@ -411,6 +411,16 @@ h4 {
   }
 }
 
+.loadmore-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.loadmore-button {
+  width: auto;
+  margin-bottom: 64px;
+}
+
 //Single listing
 
 .listing-companyinfo {

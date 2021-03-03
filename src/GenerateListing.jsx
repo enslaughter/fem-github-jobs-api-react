@@ -17,7 +17,7 @@ function GenerateListing(props){
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result);
+                    //console.log(result);
                 setIsLoaded(true);
                 setItems(result);
                 },
