@@ -414,7 +414,8 @@ h4 {
 .loadmore-container {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .loadmore-button {
   width: auto;
@@ -462,10 +463,10 @@ h4 {
     color: white;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  div h1,
+  div h2,
+  div h3,
+  div h4 {
     color: black;
     line-height: 40px;
 
