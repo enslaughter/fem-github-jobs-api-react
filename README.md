@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Github Jobs API App
+This project is a GitHub Jobs API UI derived from the Frontend Mentor challenge. It is constructed in React with the SASS pre-processor. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Note:
 
-## Available Scripts
+I am aware that GitHub Jobs is shutting down soon. I am working on a variation of this project that will allow for the app to be used with static data for display purposes. I worked very hard on this project and don't want to see it go to waste. 
 
-In the project directory, you can run:
+## UI Features
 
-### `npm start`
+* Searching functionality with additional filter options
+* Theme switching (Light and Dark modes available)
+* Listings can be viewed in greater detail with information on how to apply
+* If more listings are available, the user can click to load more
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Code Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Pages are handled via react router
+* Makes API calls using Fetch with parameter functionality 
+* Website loads preferred browser/system theme automatically
+* Page information is loaded dynamically through JSON data
+* HTML from JSON data is sanitized to promote security
 
-### `npm test`
+## My Notes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+One of the biggest challenges I've faced and my first major API project. Turning JSON data into components in React is one challenge, but fetching that data via an HTTP request was a learning experience. Namely, GitHub has a CORS policy, which meant that I had to learn how request headers worked. Additionally, I had to code functions for managing different types of queries to the GitHub Jobs API, and learn how to code asynchronously for the loading of additional listings that meet the search criteria. I also had to learn how to handle errors appropriately if the call was met with an error. As the raw data contained HTML in some of its fields, I was met with another challenge of determining how to handle it. Ultimately, I went with an approach that targeted certain elements through DOM fragments, and I also used a sanitization library to make sure it was clean HTML to put into the component.
 
-### `npm run build`
+This is also my first time handling theme management on a large scale. I used a data-theme attribute method which allowed me to handle the theme's state in React, and define how it should look in CSS by targeting objects with certain values for that attribute. It also made use of the "use media predicate" hook to load the user's preferred theme, available as part of lessmess' "react-media-hook" library. I used transitions to make the theme switching feel smoother for the user. Overall, I'm happy with how it turned out. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Credits
+Initial design and images purchased from Frontend Mentor
