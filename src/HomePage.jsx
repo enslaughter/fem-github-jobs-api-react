@@ -1,20 +1,20 @@
-import './styles/App.scss';
+import "./styles/App.scss";
 import FetchJobs from "./FetchJobs";
+import TestJobs from "./TestJobs";
 
-import {useEffect} from 'react';
+import { useEffect } from "react";
 
-function HomePage(props){
+function HomePage(props) {
+  useEffect(() => {
+    props.changePageView("home");
+  });
 
-    useEffect(() => {
-        props.changePageView('home');
-    })
-
-    return(
-        
-        <div>
-            <FetchJobs toggleState={props.toggleState} filters={props.filters}/>
-        </div>
-    )
+  return (
+    <div>
+      {/* If the API was still up, this would be a FetchJobs component instead */}
+      <TestJobs toggleState={props.toggleState} filters={props.filters} />
+    </div>
+  );
 }
 
 export default HomePage;
