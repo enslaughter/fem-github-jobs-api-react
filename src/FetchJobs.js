@@ -76,7 +76,7 @@ function FetchJobs(props) {
         (result) => {
           //console.log(result);
           setMoreLoaded(true);
-          if (result === []) {
+          if (result.length === 0) {
             setCanLoadMore(false);
           } else {
             setItems((prevItems) => [...prevItems, ...result]);

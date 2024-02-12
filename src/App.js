@@ -53,10 +53,6 @@ function App() {
   };
   const [filters, setFilters] = useState(emptyFilters);
 
-  useEffect(() => {
-    //console.log(JSON.stringify(filters));
-  }, [filters]);
-
   return (
     <div className="app" data-theme={toggleState}>
       <Heading
